@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import { Grid } from '@material-ui/core';
 
-import SearchBar from './components/SearchBar';
-import VideoDetail from './components/VideoDetail';
+import {SearchBar,VideoDetail} from './components';
 
 //import youtubeApi from './api/youtube';
 
