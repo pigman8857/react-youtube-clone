@@ -3,16 +3,29 @@ import { Grid } from '@material-ui/core';
 
 import {SearchBar,VideoDetail} from './components';
 
-//import youtubeApi from './api/youtube';
+import youtubeApi from './api/youtube';
 
 class App extends Component{
+
+    handleSubmit = async (searchTerm) => {
+        const response = await youtubeApi.get('search' , {
+            params : {
+                part : 'snippet',
+                maxResults : 5,
+                key : process.env.YOUTUBE_API_KEY
+            }
+        });
+
+        console.log(response);
+    }
+
     render(){
         return (
-            <Grid justify="center" container spacing={16}>
+            <Grid justify="center" container spacing={10}>
                 <Grid item xs={12}>
-                    <Grid container spacing={16}>
+                    <Grid container spacing={10}>
                         <Grid item xs={12}> 
-                            <SearchBar />
+                            <SearchBar onFormSubmit={this.handleSubmit}/>
                         </Grid>
                         <Grid item xs={8}> 
                             <VideoDetail />
