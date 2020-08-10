@@ -1,3 +1,8 @@
+## Youtube link
+### This project is for learning react by example.
+
+[Build a YouTube Clone Application Using React](https://www.youtube.com/watch?v=VPVzx1ZOVuw)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
