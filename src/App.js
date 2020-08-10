@@ -6,17 +6,27 @@ import {SearchBar,VideoDetail} from './components';
 import youtubeApi from './api/youtube';
 
 class App extends Component{
+    state = {
+        videos : [],
+        selectedVideo : null
+    }
 
     handleSubmit = async (searchTerm) => {
         const response = await youtubeApi.get('search' , {
             params : {
                 part : 'snippet',
                 maxResults : 5,
-                key : process.env.YOUTUBE_API_KEY
+                key : '{youtube api key}',
+                q : searchTerm
             }
         });
 
-        console.log(response);
+        console.log(response.data.items);
+
+        this.setState({
+            videos : response.data.items,
+            selectedVideo : response.data.items[0]
+        });
     }
 
     render(){
