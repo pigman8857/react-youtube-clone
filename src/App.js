@@ -11,6 +11,14 @@ class App extends Component{
         selectedVideo : null
     }
 
+    componentDidMount(){
+        this.handleSubmit('pdf generation with react and node')
+    }
+
+    onVideoSelect = (video) => {
+        this.setState({ selectedVideo : video});
+    }
+
     handleSubmit = async (searchTerm) => {
         const response = await youtubeApi.get('search' , {
             params : {
@@ -42,8 +50,7 @@ class App extends Component{
                             <VideoDetail video={selectedVideo}/>
                         </Grid>
                         <Grid item xs={4}> 
-                            <VideoList videos={videos}/>
-                            
+                            <VideoList videos={videos} onVideoSelect={this.onVideoSelect}/>                      
                         </Grid>
                     </Grid>
                 </Grid>
